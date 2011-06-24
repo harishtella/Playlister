@@ -1,0 +1,4 @@
+Berklee Problem Set
+
+Objective: Build a small self-contained web app in Ruby on Rails providing the ability to store metadata for a number of Mp3 files, rate them, and generate randomized playlists in m3u format.  
+
