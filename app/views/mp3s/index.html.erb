@@ -1,0 +1,29 @@
+<h1>Listing mp3s</h1>
+
+<table>
+  <tr>
+    <th>Url</th>
+    <th>Title</th>
+    <th>Artist name</th>
+    <th>Length</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @mp3s.each do |mp3| %>
+  <tr>
+    <td><%= mp3.url %></td>
+    <td><%= mp3.title %></td>
+    <td><%= mp3.artist_name %></td>
+    <td><%= mp3.length %></td>
+    <td><%= link_to 'Show', mp3 %></td>
+    <td><%= link_to 'Edit', edit_mp3_path(mp3) %></td>
+    <td><%= link_to 'Destroy', mp3, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Mp3', new_mp3_path %>

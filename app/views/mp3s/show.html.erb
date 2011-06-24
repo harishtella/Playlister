@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Url:</b>
+  <%= @mp3.url %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @mp3.title %>
+</p>
+
+<p>
+  <b>Artist name:</b>
+  <%= @mp3.artist_name %>
+</p>
+
+<p>
+  <b>Length:</b>
+  <%= @mp3.length %>
+</p>
+
+
+<%= link_to 'Edit', edit_mp3_path(@mp3) %> |
+<%= link_to 'Back', mp3s_path %>
