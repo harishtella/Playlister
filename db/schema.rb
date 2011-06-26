@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110624191324) do
+ActiveRecord::Schema.define(:version => 20110624192321) do
 
   create_table "mp3s", :force => true do |t|
     t.string   "url"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20110624191324) do
     t.integer  "value"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "mp3_id"
   end
 
 end

@@ -1,6 +1,13 @@
 Berklee::Application.routes.draw do
-  resources :mp3s
+  root :to => "mp3s#index"
 
+  resources :mp3s
+  match 'mp3s/:id/rate/' => 'mp3s#create_rating', :as => :create_rating
+
+  get "playlist/index"
+  post "playlist/generate"
+
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

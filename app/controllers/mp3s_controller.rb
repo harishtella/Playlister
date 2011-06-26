@@ -14,11 +14,22 @@ class Mp3sController < ApplicationController
   # GET /mp3s/1.xml
   def show
     @mp3 = Mp3.find(params[:id])
+    @rating = Rating.new
 
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @mp3 }
     end
+  end
+
+  def create_rating 
+    @mp3 = Mp3.find(params[:id])
+    @rating = Rating.new(params[:rating])
+
+    @mp3.ratings << @rating
+    @mp3.save
+
+    redirect_to(@mp3)
   end
 
   # GET /mp3s/new
