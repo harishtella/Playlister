@@ -1,2 +1,12 @@
 <h1>Playlist#generate</h1>
 <p>Find me in app/views/playlist/generate.html.erb</p>
+
+<% @mp3s.each do |mp3| %>
+  <tr>
+    <td><%= mp3.url %></td>
+    <td><%= mp3.title %></td>
+    <td><%= mp3.artist_name %></td>
+    <td><%= mp3.length %></td>
+  </tr>
+<% end %>
+

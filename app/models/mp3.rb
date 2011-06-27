@@ -8,10 +8,12 @@ class Mp3 < ActiveRecord::Base
     r = self.ratings
     r.map! {|x| x.value}
 
-    #avg = r.inject{ |sum, x| sum + x }.to_f / r.size 
-    #avg.round(2)
-    
-    
+    avg = r.inject{ |sum, x| sum + x }.to_f / r.size 
+    avg.to_int
+  end
+
+  def self.from_artists(artists)
+    self.where("artist_name IN (?)", artists)
   end
 
 end
