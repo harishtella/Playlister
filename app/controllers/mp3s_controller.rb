@@ -9,11 +9,7 @@ class Mp3sController < ApplicationController
 
   def show
     @mp3 = Mp3.find(params[:id])
-    @mp3_cr = @mp3.current_rating 
-    @mp3_rating_s = if @mp3_cr 
-                      then @mp3_cr 
-                    else "none yet" end
-
+    
     @rating = Rating.new
 
     respond_to do |format|

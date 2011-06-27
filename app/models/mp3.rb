@@ -1,23 +1,29 @@
 require 'uri'
 
 class Mp3 < ActiveRecord::Base
-
   has_many :ratings
-
   validates_presence_of :url, :title 
   validates_format_of :url, :with => URI::regexp(%w(http https))
   
-  def current_rating 
-    r = self.ratings
+  def average_rating 
+    rating_vals = self.ratings.map {|x| x.value}
 
-    unless r.empty?
-      r.map! {|x| x.value}
-      avg = r.inject{ |sum, x| sum + x }.to_f / r.size 
-      return avg.to_int
+    unless rating_vals.empty?
+      average = rating_vals.inject {|sum, x| sum + x }.to_f / rating_vals.size 
+      return average.to_i
     else 
       return nil  
     end
   end
+
+  def average_rating_s
+    if self.average_rating 
+      self.average_rating.to_s
+    else 
+      "none yet" 
+    end
+  end
+
 
   def url_short
     full_url = self.url
