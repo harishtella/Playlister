@@ -3,19 +3,35 @@
 <p>
   <%= form_tag 'generate' do %>
 
-    <%= label_tag 'Artists' %> 
+    <%= label_tag 'Select artists' %> 
     <br/>
+    <span class="helper_text">
+      or don't select any and we will include them all 
+    </span>
+    <br/>
+    <span class="helper_text">
+      tip: use shift and click to select multiple artists
+    </span>
+    <br/>
+
     <%= select_tag 'artists', options_for_select(@artists), 
-      :multiple => true, :size => 20 %>
+      :multiple => true, :size => 10 %>
 
     <br/>
-
-    <%= label_tag 'Minimum Rating:' %> 
-    <%= select_tag 'min_rating', options_for_select([1, 2, 3, 4, 5]) %>
-     
     <br/>
 
-    <%= submit_tag "generate" %>
+    <%= label_tag 'Songs rated at least:' %> 
+    <%= select_tag 'min_rating', 
+      options_for_select([['anything', -1], [1,1], [2,2], [3,3], [4,4], [5,5]]) %>
+
+    <br/>
+    <br/>
+
+    <%= submit_tag "download playlist" %>
   <% end %>
 </p>
+
+
+<br/>
+<%= link_to "Back", :back %>
 

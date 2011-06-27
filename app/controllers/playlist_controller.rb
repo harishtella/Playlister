@@ -29,13 +29,14 @@ class PlaylistController < ApplicationController
     @artists = params[:artists]
     @min_rating = params[:min_rating].to_i
 
-    unless @artists.empty?
+    unless @artists.nil?
       @mp3s = Mp3.from_artists(@artists)
     else 
       @mp3s = Mp3.find(:all)
     end
 
     @mp3s.select! {|x| x.current_rating >= @min_rating}
+    @mp3s.shuffle!
 
     playlist = generate_m(@mp3s)
     

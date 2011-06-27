@@ -1,6 +1,7 @@
-<h1>Editing mp3</h1>
+<h1>Editing Mp3</h1>
 
 <%= render 'form' %>
 
+<%= link_to 'Destroy', @mp3, :confirm => 'Are you sure?', :method => :delete %> |
 <%= link_to 'Show', @mp3 %> |
 <%= link_to 'Back', mp3s_path %>
