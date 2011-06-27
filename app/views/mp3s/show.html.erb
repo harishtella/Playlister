@@ -25,16 +25,12 @@
   <%= form_for @rating, :url => create_rating_url(@mp3) do |f| %>
     <%= f.label :rating, "What do you think of this song?" %> 
     <br/>
-    1
-    <%= f.radio_button 'value', '1' %>
-    2
-    <%= f.radio_button 'value', '2' %>
-    3
-    <%= f.radio_button 'value', '3' %>
-    4
-    <%= f.radio_button 'value', '4' %>
-    5
-    <%= f.radio_button 'value', '5' %>
+    1 <%= f.radio_button 'value', '1' %>
+    2 <%= f.radio_button 'value', '2' %>
+    3 <%= f.radio_button 'value', '3' %>
+    4 <%= f.radio_button 'value', '4' %>
+    5 <%= f.radio_button 'value', '5' %>
+    <span>&nbsp; &nbsp;</span>
     <%= f.submit "Rate it" %>
   <% end %>
 </p>

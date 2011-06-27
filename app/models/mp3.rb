@@ -1,10 +1,11 @@
 require 'uri'
 
 class Mp3 < ActiveRecord::Base
+
   has_many :ratings
-  # TODO validate url
-  # TODO validate length >0
-  #
+
+  validates_presence_of :url, :title 
+  validates_format_of :url, :with => URI::regexp(%w(http https))
   
   def current_rating 
     r = self.ratings
@@ -22,7 +23,6 @@ class Mp3 < ActiveRecord::Base
     full_url = self.url
     return URI.parse(full_url).host
   end
-
 
   def self.from_artists(artists)
     self.where("artist_name IN (?)", artists)
