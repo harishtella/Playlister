@@ -10,7 +10,7 @@ class Mp3 < ActiveRecord::Base
 
     unless rating_vals.empty?
       average = rating_vals.inject {|sum, x| sum + x }.to_f / rating_vals.size 
-      return average.to_i
+      return average.round
     else 
       return nil  
     end
