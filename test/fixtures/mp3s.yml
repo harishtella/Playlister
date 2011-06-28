@@ -13,3 +13,11 @@ two:
   title: Fur Elise
   artist_name: Beethoven 
   length: 152
+
+three:
+  id: 3
+  url: http://uk9.ucoz.co.uk/mp3/Salieri_Strikes_Back_Syntheway_RetroMagix_Harpsichord_VSTi.mp3
+  title: Salieri Strikes Back
+  artist_name: Warmen 
+  length: 315
+
