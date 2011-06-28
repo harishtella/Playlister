@@ -5,3 +5,7 @@
 .helper_text{
   font-size: 10px;
 }
+
+#flash_error{
+  color: red;
+}

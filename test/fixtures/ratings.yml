@@ -7,3 +7,6 @@ one:
 two:
   value: 3 
   mp3_id: 1
+
+unattached_to_mp3:
+  value: 3 

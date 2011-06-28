@@ -3,6 +3,15 @@ require 'test_helper'
 class Mp3sControllerTest < ActionController::TestCase
   setup do
     @mp3 = mp3s(:one)
+    @rating = ratings(:unattached_to_mp3)
+  end
+
+  test "should create rating" do
+    assert_difference("Mp3.find(#{@mp3.to_param}).ratings.count") do
+      post :create_rating, :id => @mp3.to_param, 
+        :rating => @rating.attributes 
+      assert_redirected_to mp3_path(assigns(:mp3))
+    end
   end
 
   test "should get index" do

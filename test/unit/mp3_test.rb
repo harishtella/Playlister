@@ -12,10 +12,12 @@ class Mp3Test < ActiveSupport::TestCase
   end
 
   test "url_short" do
-    assert true
+    assert_equal(mp3s(:two).url_short, 'www.mfiles.co.uk')
   end
 
+  # TODO this should be done using sets 
   test "from_artists" do
-    assert true
+    assert_equal(Mp3.from_artists(['Johann Pachelbel', 'Beethoven']), 
+           [mp3s(:one), mp3s(:two)])
   end
 end

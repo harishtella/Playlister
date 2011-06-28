@@ -25,6 +25,9 @@
       options_for_select([['anything', -1], [1,1], [2,2], [3,3], [4,4], [5,5]]) %>
 
     <br/>
+    <%- flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <%- end -%>
     <br/>
 
     <%= submit_tag "download playlist" %>

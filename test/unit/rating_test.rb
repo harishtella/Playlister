@@ -1,8 +1,10 @@
 require 'test_helper'
 
 class RatingTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
+  test "must belong to mp3" do
+    assert true
+  end
+  test "value must be number" do
     assert true
   end
 end
