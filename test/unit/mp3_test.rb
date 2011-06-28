@@ -15,9 +15,62 @@ class Mp3Test < ActiveSupport::TestCase
     assert_equal(mp3s(:two).url_short, 'www.mfiles.co.uk')
   end
 
-  # TODO this should be done using sets 
   test "from_artists" do
-    assert_equal(Mp3.from_artists(['Johann Pachelbel', 'Beethoven']), 
-           [mp3s(:one), mp3s(:two)])
+    trial = Mp3.from_artists(['Johann Pachelbel', 'Beethoven'])
+    expected = [mp3s(:one), mp3s(:two)]
+  
+    trial.sort { |x, y| x.artist_name <=> y.artist_name}
+    expected.sort { |x, y| x.artist_name <=> y.artist_name}
+    assert_equal(trial, expected)
+  end
+
+  test "shouldn't save without url" do
+    m = Mp3.new 
+    m.title = 'A good song'
+    m.artist_name = 'A good artist'
+    m.length = 120
+    assert !m.save
+  end
+
+  test "shouldn't save without length" do
+    m = Mp3.new 
+    m.title = 'A good song'
+    m.artist_name = 'A good artist'
+    m.url = 'http://www.music.com/song.mp3'
+    assert !m.save
+  end
+
+  test "shouldn't save without artist_name" do
+    m = Mp3.new 
+    m.title = 'A good song'
+    m.length = 120
+    m.url = 'http://www.music.com/song.mp3'
+    assert !m.save
+  end
+
+  test "shouldn't save without title" do
+    m = Mp3.new 
+    m.artist_name = 'A good artist'
+    m.length = 120
+    m.url = 'http://www.music.com/song.mp3'
+    assert !m.save
+  end
+
+  test "shouldn't save without integer length" do
+    m = Mp3.new 
+    m.title = 'A good song'
+    m.artist_name = 'A good artist'
+    m.length = 120.98
+    m.url = 'http://www.music.com/song.mp3'
+    assert !m.save
+  end
+
+  test "shouldn't save with bad url" do
+    m = Mp3.new 
+    m.title = 'A good song'
+    m.artist_name = 'A good artist'
+    m.length = 120.98
+    m.url = 'music.rom/song.mp3'
+    assert !m.save
   end
 end

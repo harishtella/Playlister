@@ -2,8 +2,10 @@ require 'uri'
 
 class Mp3 < ActiveRecord::Base
   has_many :ratings
-  validates_presence_of :url, :title 
+  validates_presence_of :url, :title, :artist_name, :length
   validates_format_of :url, :with => URI::regexp(%w(http https))
+  validates_numericality_of :length, :only_integer => true
+
   
   def average_rating 
     rating_vals = self.ratings.map {|x| x.value}
