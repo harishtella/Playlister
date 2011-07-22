@@ -1,4 +1,16 @@
-Berklee Problem Set
+Text Message Portal 
 
-Objective: Build a small self-contained web app in Ruby on Rails providing the ability to store metadata for a number of Mp3 files, rate them, and generate randomized playlists in m3u format.  
+a rails 3.0 demo app that generates M3U playlists
 
+## Usage
+
+at command line perform:
+
+rake db:migrate
+script/server
+
+## License
+
+Copyright (C) 2011 Harish Tella
+
+Distributed under the MIT License
