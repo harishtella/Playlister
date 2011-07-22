@@ -1,4 +1,4 @@
-Berklee::Application.routes.draw do
+Playlister::Application.routes.draw do
   root :to => "mp3s#index"
 
   resources :mp3s

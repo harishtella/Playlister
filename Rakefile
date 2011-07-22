@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-Berklee::Application.load_tasks
+Playlister::Application.load_tasks
