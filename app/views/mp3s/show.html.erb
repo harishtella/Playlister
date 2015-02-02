@@ -16,6 +16,11 @@
   <%= @mp3.length %>
 </p>
 
+<audio controls>
+  <source src="<%= @mp3.url %>" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
 <p>
   <b> Average rating: </b>
   <%= @mp3.average_rating_s %>
