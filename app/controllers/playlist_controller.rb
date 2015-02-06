@@ -1,4 +1,4 @@
-require 'M3U'
+require 'm3u'
 
 class PlaylistController < ApplicationController
   def index
